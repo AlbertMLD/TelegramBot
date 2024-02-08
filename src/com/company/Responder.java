@@ -50,6 +50,12 @@ public class Responder extends TelegramLongPollingBot {
                 LocalDateTime currentTime = LocalDateTime.now();
                 sendMessage.setText(currentTime.toString());
             }
+
+            // Check if the callback data is "/NO"
+            if (callBackData.equalsIgnoreCase("/NO")) {
+                // Set the response for the "NO" answer
+                sendMessage.setText("No Problem!");
+            }
         }
 
         // Check if the update contains a regular text message
@@ -76,12 +82,27 @@ public class Responder extends TelegramLongPollingBot {
                 sendMessage.setText("Would you like to know the current time?");
 
                 // Create an inline keyboard with a "Yes" button
+                // First create the keyboard
                 List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
+
+                // Then we create the buttons row
                 List<InlineKeyboardButton> buttonsRow = new ArrayList<>();
+
+                // Create YES button
                 InlineKeyboardButton yesButton = new InlineKeyboardButton();
                 yesButton.setText("Yes?");
                 yesButton.setCallbackData("/YES");
+
+                // Create NO button
+                InlineKeyboardButton noThanksButton = new InlineKeyboardButton();
+                noThanksButton.setText("No thanks");
+                noThanksButton.setCallbackData("/NO");
+
+                // We add YES button to the buttons row
                 buttonsRow.add(yesButton);
+                buttonsRow.add(noThanksButton);
+
+                //We add the newly created buttons row that contains the YES button to the keyboard
                 keyboard.add(buttonsRow);
 
                 InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
