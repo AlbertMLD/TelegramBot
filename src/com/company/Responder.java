@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import javax.ws.rs.sse.InboundSseEvent;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -63,6 +64,9 @@ public class Responder extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             // Extract chat ID from the message
             chatId = String.valueOf(update.getMessage().getChatId());
+
+            MongoDB.insertNewUserID(chatId);
+
             // Get the user's message
             String userMessage = update.getMessage().getText().trim();
 
