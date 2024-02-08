@@ -67,7 +67,7 @@ public class Responder extends TelegramLongPollingBot {
             String userMessage = update.getMessage().getText().trim();
 
             // Check if the user's message is "Hello"
-            if (userMessage.equalsIgnoreCase("Hello")){
+            if (userMessage.equalsIgnoreCase("Hello")) {
                 sendMessage.setText("How are you?");
             }
 
