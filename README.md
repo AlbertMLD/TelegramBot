@@ -1,15 +1,18 @@
-Telegram Bot with Java
+# Telegram Bot with Java
+
 This Java application implements a simple Telegram bot using the Telegram Bot API. The bot responds to user messages, handles callback queries (button presses), and interacts with a MongoDB database to store user IDs.
 
-Prerequisites
-Java 8 or later
-Maven
-MongoDB installed and running on localhost:27017
-Getting Started
-Clone the repository to your local machine:
+## Prerequisites
 
-bash
-Copy code
+- Java 8 or later
+- Maven
+- MongoDB installed and running on localhost:27017
+
+## Getting Started
+
+1. Clone the repository to your local machine:
+
+```bash
 git clone https://github.com/your-username/telegram-bot-java.git
 Open the project in your preferred Java IDE.
 
@@ -20,7 +23,6 @@ Copy code
 static final String BOT_TOKEN = "your-telegram-bot-token";
 static final String USERNAME = "your-bot-username";
 Run the Main.java class to start the Telegram bot.
-
 Features
 1. Basic Responses
 The bot responds to certain messages:
@@ -47,8 +49,3 @@ org.telegram.telegrambots:telegrambots-meta: Telegram Bots API
 org.mongodb:mongodb-driver-sync: MongoDB Java Driver
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-
-
-
-
