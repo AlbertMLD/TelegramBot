@@ -19,7 +19,7 @@ public class MongoDB {
 
         String url = "mongodb://localhost:27017";
 
-        MongoClient mongoClient = MongoClients.create(url);
+        mongoClient = MongoClients.create(url);
         MongoDatabase mongoDatabase = mongoClient.getDatabase("telegram");
 
         try {
