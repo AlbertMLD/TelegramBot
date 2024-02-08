@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,6 +112,12 @@ public class Responder extends TelegramLongPollingBot {
                 // Attach the inline keyboard to the response message
                 sendMessage.setReplyMarkup(inlineKeyboardMarkup);
             }
+
+            if (userMessage.equalsIgnoreCase("/day")) {
+                DayOfWeek todayDayOfTheWeek = LocalDateTime.now().getDayOfWeek();
+                sendMessage.setText(todayDayOfTheWeek.toString());
+            }
+
         }
 
         // Check if the chat ID is empty
