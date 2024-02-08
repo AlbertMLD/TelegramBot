@@ -45,14 +45,14 @@ public class Responder extends TelegramLongPollingBot {
             String callBackData = update.getCallbackQuery().getData();
 
             // Check if the callback data is "/YES"
-            if (callBackData.equalsIgnoreCase("/YES")) {
+            if (callBackData.equalsIgnoreCase(CallBackData.CD_YES.toString())) {
                 // Get the current time and set it as the response
                 LocalDateTime currentTime = LocalDateTime.now();
                 sendMessage.setText(currentTime.toString());
             }
 
             // Check if the callback data is "/NO"
-            if (callBackData.equalsIgnoreCase("/NO")) {
+            if (callBackData.equalsIgnoreCase(CallBackData.CD_NO.toString())) {
                 // Set the response for the "NO" answer
                 sendMessage.setText("No Problem!");
             }
@@ -91,12 +91,12 @@ public class Responder extends TelegramLongPollingBot {
                 // Create YES button
                 InlineKeyboardButton yesButton = new InlineKeyboardButton();
                 yesButton.setText("Yes?");
-                yesButton.setCallbackData("/YES");
+                yesButton.setCallbackData(CallBackData.CD_YES.toString());
 
                 // Create NO button
                 InlineKeyboardButton noThanksButton = new InlineKeyboardButton();
                 noThanksButton.setText("No thanks");
-                noThanksButton.setCallbackData("/NO");
+                noThanksButton.setCallbackData(CallBackData.CD_NO.toString());
 
                 // We add YES button to the buttons row
                 buttonsRow.add(yesButton);
