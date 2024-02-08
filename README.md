@@ -12,7 +12,6 @@ This Java application implements a simple Telegram bot using the Telegram Bot AP
 
 1. Clone the repository to your local machine:
 
-```bash
 git clone https://github.com/your-username/telegram-bot-java.git
 Open the project in your preferred Java IDE.
 
