@@ -18,10 +18,10 @@ Open the project in your preferred Java IDE.
 
 Replace the Bot.java class variables (BOT_TOKEN and USERNAME) with your Telegram bot's token and username.
 
-java
-Copy code
+
 static final String BOT_TOKEN = "your-telegram-bot-token";
 static final String USERNAME = "your-bot-username";
+
 Run the Main.java class to start the Telegram bot.
 Features
 1. Basic Responses
