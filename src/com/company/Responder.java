@@ -65,6 +65,8 @@ public class Responder extends TelegramLongPollingBot {
             // Extract chat ID from the message
             chatId = String.valueOf(update.getMessage().getChatId());
 
+            boolean userExist = MongoDB.userExists(chatId);
+
             MongoDB.insertNewUserID(chatId);
 
             // Get the user's message
@@ -72,7 +74,11 @@ public class Responder extends TelegramLongPollingBot {
 
             // Check if the user's message is "Hello"
             if (userMessage.equalsIgnoreCase("Hello")) {
-                sendMessage.setText("How are you?");
+                if (userExist) {
+                    sendMessage.setText("Hello again! How are you?");
+                } else {
+                    sendMessage.setText("How are you?");
+                }
             }
 
             // Check if the user's message is "How are you?"
